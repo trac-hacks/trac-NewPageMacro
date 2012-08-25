@@ -21,6 +21,12 @@ class NewPageMacro(WikiMacroBase):
 
     def expand_macro(self, formatter, name, content, args):
         data = parse_args(content)[1]
+        if data.has_key("id"):
+            data["form"] = "new-project-form-%s" % data["id"]
+            data["project"] = "project-name-%s" % data["id"]
+        else:
+            data["form"] = "new-project-form"
+            data["project"] = "project-name"
         self.log.debug("EXPAND ARGUMENTS: %s " % data)
         req = formatter.req
         template = Chrome(self.env).load_template('newpageform.html',method='xhtml')

@@ -2,18 +2,18 @@
 <div>
  <py:choose>
   <py:when test="req.session.authenticated">
-   <form id="new-project-form" method="GET" action="${req.href(parent,'__REPLACE_DYNAMICALLY__')}">
-    <input type="text" placeholder="${placeholder}" id="project-name" />
+   <form id="${form}" method="GET" action="${req.href(parent,'__REPLACE_DYNAMICALLY__')}">
+    <input type="text" placeholder="${placeholder}" id="${project}" />
     <input type="submit" value="${button}"/>
     <input type="hidden" name="template" value="${template}" />
     <input type="hidden" name="action" value="edit" />
    </form>
    <script type="text/javascript">
-     $("form#new-project-form").submit(function() {
-       var project_name = $("input#project-name").val();
-       var form_action = $("form#new-project-form").attr("action");
+     $("form#${form}").submit(function() {
+       var project_name = $("input#${project}").val();
+       var form_action = $("form#${form}").attr("action");
        form_action = form_action.replace("__REPLACE_DYNAMICALLY__", project_name);
-       $("form#new-project-form").attr("action", form_action);
+       $("form#${form}").attr("action", form_action);
        return true;
      });
    </script>
