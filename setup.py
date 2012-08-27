@@ -7,7 +7,7 @@ setup(
     name = 'TracNewPageMacro',
     version = '0.1',
     packages = ['newpage'],
-    package_data={ 'newpage' : [ 'templates/*.html' ] },
+    package_data={ 'newpage' : [ 'templates/*.html', "htdocs/*.*" ] },
     author = "Benjamin Lau",
     description = "Macro to add a form to a wiki page for creating new pages",
     license = "BSD",

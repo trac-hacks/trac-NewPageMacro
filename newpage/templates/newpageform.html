@@ -7,6 +7,7 @@
     <input type="submit" value="${button}"/>
     <input type="hidden" name="template" value="${template}" />
     <input type="hidden" name="action" value="edit" />
+    <input py:if="tags" type="hidden" name="tags" value="${tags}"/>
    </form>
    <script type="text/javascript">
      $("form#${form}").submit(function() {
