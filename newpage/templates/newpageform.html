@@ -1,7 +1,7 @@
 <html xmlns:py="http://genshi.edgewall.org/" py:strip="">
 <div>
  <py:choose>
-  <py:when test="req.session.authenticated">
+  <py:when test="'WIKI_CREATE' in req.perm">
    <form id="${form}" method="GET" action="${req.href(parent,'__REPLACE_DYNAMICALLY__')}">
     <input type="text" placeholder="${placeholder}" id="${project}" />
     <input type="submit" value="${button}"/>
