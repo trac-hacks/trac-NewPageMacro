@@ -27,6 +27,9 @@ class NewPageMacro(WikiMacroBase):
         else:
             data["form"] = "new-project-form"
             data["project"] = "project-name"
+        if 'parent' not in data:
+            data["parent"] = "/wiki"
+
         self.log.debug("EXPAND ARGUMENTS: %s " % data)
         req = formatter.req
         template = Chrome(self.env).load_template('newpageform.html',method='xhtml')
